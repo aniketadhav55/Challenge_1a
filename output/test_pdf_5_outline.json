@@ -1,0 +1,115 @@
+{
+  "title": "test_pdf_5.pdf",
+  "outline": [
+    {
+      "level": "H1",
+      "text": "Prediction of Lung Cancer Using Machine Learning",
+      "page": 1
+    },
+    {
+      "level": "H1",
+      "text": "Abstract",
+      "page": 1
+    },
+    {
+      "level": "H1",
+      "text": "INTRODUCTION",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "Adenocarcinoma (AC) and squamous cell carcinoma",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "AC and SCC using various feature extraction and Cancer Imaging Archive Collection, which is freely",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "SVM), and (b) four cutting-edge convolutional neural (Alexnet, ResNet101, Inceptionv3, InceptionResnetv2)), (c) CNN combined with a long short-term memory (LSTM)",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "(d) combined model (LSTM + CNN + radio) Mix). In",
+      "page": 1
+    },
+    {
+      "level": "H1",
+      "text": "REVIEW OF LITERATURE",
+      "page": 1
+    },
+    {
+      "level": "H1",
+      "text": "OUR PROPOSED WORK",
+      "page": 2
+    },
+    {
+      "level": "H3",
+      "text": "Regression, Support Vector Machine, and Decision Tree—",
+      "page": 2
+    },
+    {
+      "level": "H3",
+      "text": "Static Vector Machine With this method, split and",
+      "page": 2
+    },
+    {
+      "level": "H3",
+      "text": "Benefits: SVM functions best when there is a large gap",
+      "page": 2
+    },
+    {
+      "level": "H3",
+      "text": "Logistic Regression is known as a popular algorithm in",
+      "page": 2
+    },
+    {
+      "level": "H3",
+      "text": "Advantages of Logistic regression is easy to implement,",
+      "page": 2
+    },
+    {
+      "level": "H3",
+      "text": "Advantages of the Random Forest Algorithm are",
+      "page": 2
+    },
+    {
+      "level": "H3",
+      "text": "Decision Tree this tree is considered the most powerful",
+      "page": 2
+    },
+    {
+      "level": "H1",
+      "text": "RESULTS",
+      "page": 2
+    },
+    {
+      "level": "H3",
+      "text": "Match rate = True Positive / True Positive + False",
+      "page": 2
+    },
+    {
+      "level": "H3",
+      "text": "Harmonic Mean is used in machine learning to calculate",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "C OMPARISON",
+      "page": 3
+    },
+    {
+      "level": "H1",
+      "text": "CONCLUSIONS",
+      "page": 3
+    },
+    {
+      "level": "H1",
+      "text": "REFERENCES",
+      "page": 3
+    }
+  ]
+}

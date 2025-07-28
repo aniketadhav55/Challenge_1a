@@ -1,0 +1,100 @@
+{
+  "title": "test_pdf_3.pdf",
+  "outline": [
+    {
+      "level": "H1",
+      "text": "Chapter:Inheritance and Polymorphism",
+      "page": 1
+    },
+    {
+      "level": "H1",
+      "text": "13.1. Example: A Figure-Drawing Application",
+      "page": 1
+    },
+    {
+      "level": "H1",
+      "text": "Modeling Objects and Relationships",
+      "page": 2
+    },
+    {
+      "level": "H1",
+      "text": "13.3. Inheritance",
+      "page": 4
+    },
+    {
+      "level": "H1",
+      "text": "13.3.1. The extends Clause",
+      "page": 5
+    },
+    {
+      "level": "H1",
+      "text": "13.3.2. Multi-Level Inheritance",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "PoweredVehicle.java",
+      "page": 9
+    },
+    {
+      "level": "H1",
+      "text": "13.3.3.The Java Class Hierarchy",
+      "page": 10
+    },
+    {
+      "level": "H1",
+      "text": "13.3.4. Accessing Superclass Constructors",
+      "page": 11
+    },
+    {
+      "level": "H1",
+      "text": "13.3.5. Overriding Superclass Methods",
+      "page": 13
+    },
+    {
+      "level": "H1",
+      "text": "13.3.6. Revisiting the Example",
+      "page": 15
+    },
+    {
+      "level": "H2",
+      "text": "Figure",
+      "page": 15
+    },
+    {
+      "level": "H2",
+      "text": "ClosedFigure",
+      "page": 15
+    },
+    {
+      "level": "H3",
+      "text": "ClosedFigure.java",
+      "page": 17
+    },
+    {
+      "level": "H1",
+      "text": "Polymorphism",
+      "page": 18
+    },
+    {
+      "level": "H1",
+      "text": "Declarations and Inheritance",
+      "page": 18
+    },
+    {
+      "level": "H3",
+      "text": "// ERROR!",
+      "page": 19
+    },
+    {
+      "level": "H1",
+      "text": "13.4.2. Dynamic Binding",
+      "page": 19
+    },
+    {
+      "level": "H1",
+      "text": "13.4.3. Abstract Methods and Classes",
+      "page": 20
+    }
+  ]
+}
