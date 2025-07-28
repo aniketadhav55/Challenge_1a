@@ -1,158 +1,85 @@
-🚀 Challenge 1a: PDF Heading Extraction Solution
-🧠 Overview
-This repository contains our submission for Challenge 1a of the Adobe India Hackathon 2025. The task is to develop a high-accuracy, ML-based PDF processing system to extract a structured outline (headings and subheadings) from diverse PDF documents.
+# 📘 Adobe Round 1A - Heading Structure Extractor
 
-The system uses a trained ML classifier with rule-based heuristics to robustly extract and classify headings (H1, H2, H3) while filtering out noise, body paragraphs, and irrelevant text.
+This project extracts structured heading outlines (`H1`, `H2`, `H3`) from English PDF documents using a trained ML model.
 
-📦 Folder Structure
-graphql
-Copy
-Edit
-project/
-├── process_pdf.py           # Core implementation
-├── heading_classifier.joblib        # Trained model (≤200MB)
-├── heading_label_encoder.joblib     # Label encoder for headings
-├── Dockerfile               # For containerized execution
-├── input/                   # Input PDF folder (read-only)
-└── output/                  # Output JSON folder
-🧰 Technologies Used
-Python 3.10
+---
 
-PyMuPDF (fitz) — for PDF parsing
+## 📁 Project Structure
 
-joblib — for model serialization
+```
+├── input/                       # Folder containing input PDFs
+├── output/                      # Output folder with extracted outline JSONs
+├── dataset/                     # Training data (CSV or annotated PDFs)
+├── Trained_Model.joblib         # Trained classifier model
+├── Trained_label_encoder.joblib# Label encoder used during training
+├── script.py                    # Main script for PDF processing
+├── Dockerfile                   # Docker image configuration
+├── requirements.txt             # Required Python dependencies
+└── README.md                    # Project instructions
+```
 
-scikit-learn — for ML inference
+---
 
-pandas, numpy — for feature processing
+## 🚀 How to Run with Docker
 
-re — for regex-based text cleaning
+### 🔨 1. Build Docker Image
 
-🧠 Core Approach
-🎯 Objective
-Extract structured section headings (H1, H2, H3) from PDFs and export an outline in the format:
+From the root project directory:
 
-json
-Copy
-Edit
+```bash
+docker build -t round1a-parser .
+```
+
+---
+
+### 📂 2. Place PDFs to Test
+
+Put your English PDFs into the `input/` folder.
+
+---
+
+### ▶️ 3. Run the Container
+
+```bash
+docker run --rm   -v "$(pwd)/input:/app/input"   -v "$(pwd)/output:/app/output"   --network none   round1a-parser
+```
+
+This will:
+- Process all PDFs in `/input`
+- Save structured outlines as JSON in `/output`
+
+---
+
+## 📝 Output Example
+
+Each JSON output looks like:
+
+```json
 {
-  "title": "document_name.pdf",
+  "title": "sample.pdf",
   "outline": [
     {
       "level": "H1",
       "text": "Introduction",
       "page": 1
     },
-    ...
+    {
+      "level": "H2",
+      "text": "Installation Steps",
+      "page": 2
+    }
   ]
 }
-⚙ Processing Pipeline
-PDF Parsing
-Text is extracted from each line in each PDF page using PyMuPDF. Each line is converted into a feature vector including:
+```
 
-Font size
+---
 
-Bold, Italic, Centered
+## 📦 Dependencies
 
-Character/Word count
+All dependencies are handled inside Docker via `requirements.txt`. No need to install manually.
 
-Position on page (x0/y0, relative height)
+---
 
-Font percentiles (z-score, ratio)
-
-Dynamic Thresholding
-A 90th percentile font size is computed dynamically for each PDF to distinguish actual headings from body text.
-
-ML Classification
-A pre-trained classifier (RandomForest or similar) predicts H1, H2, H3, or None.
-
-Heuristic Filtering
-We apply smart filters to eliminate misclassified or noisy headings:
-
-Reject likely paragraphs (long sentences, lowercase start)
-
-Reject numbering-only lines (e.g., "1.2.3")
-
-Reject weak H3s (short words, low caps, too much punctuation)
-
-Reject known noise words (e.g., "version", "remarks")
-
-Outline Structuring
-Consecutive headings of the same level and similar font size are merged. The result is structured and saved as JSON.
-
-🧪 Heuristic Rules for H3 Classification
-Custom filters applied to improve H3 classification accuracy:
-
-Word count limit: max 12 words
-
-Avoid sentences ending with . or ?
-
-Capital letter ratio must be significant
-
-Reject headings with too much punctuation (.,;:!?)
-
-Ignore headings containing noise keywords:
-
-arduino
-Copy
-Edit
-{"overview", "version", "remarks", "table", "contents", "date"}
-📤 Output Format
-For each input.pdf, the script creates:
-
-pgsql
-Copy
-Edit
-input_outline.json
-Example:
-
-json
-Copy
-Edit
-{
-  "title": "sample.pdf",
-  "outline": [
-    { "level": "H1", "text": "Executive Summary", "page": 1 },
-    { "level": "H2", "text": "Scope", "page": 2 },
-    { "level": "H3", "text": "Limitations", "page": 2 }
-  ]
-}
-🐳 Docker Instructions
-✅ Build the Docker Image
-bash
-Copy
-Edit
-docker build -t round1a-parser .   
-🚀 Run the Container
-bash
-Copy
-Edit
-docker run --rm -v "$(pwd)/input:/app/input" -v "$(pwd)/output:/app/output" --network none round1a-parser
-⏱ Performance & Constraints
-Constraint	Status
-≤ 10 sec for 50 pages	✅ Optimized
-≤ 200 MB model size	✅ ~8 MB
-No internet	✅ Offline
-CPU-only (AMD64)	✅ Supported
-RAM ≤ 16 GB	✅ Efficient
-
-🧪 Testing Strategy
-Simple PDFs: One-column documents
-
-Complex PDFs: Multi-column, bold/italic/centered text
-
-Large PDFs: 50+ pages
-
-False Positive Checks: Against paragraphs wrongly predicted as headings
-
-📝 How to Extend
-Add multilingual support by training on more fonts/scripts
-
-Add footnote/table detection (optional)
-
-Improve section merging logic (e.g., based on layout or TOC matching)
-
-✅ Final Notes
-This solution balances ML classification with deterministic heuristics to maximize heading extraction accuracy while adhering to tight compute and runtime constraints.
-
-For questions or feedback, feel free to connect!
+## 🧠 Notes
+- H3 headings are filtered with extra rules to reduce false positives.
+- The model is specifically trained on English structure data for accurate classification.
