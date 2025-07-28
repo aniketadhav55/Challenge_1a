@@ -6,8 +6,8 @@ import os
 import json
 
 #Load Model
-model = joblib.load(r"Trained_Model_Round1A_Aniket.joblib")
-label_encoder = joblib.load(r"Trained_label_encoder_Round1A_Aniket.joblib")
+model = joblib.load(r"Trained_Model.joblib")
+label_encoder = joblib.load(r"Trained_label_encoder.joblib")
 feature_names = list(model.feature_names_in_)
 
 # Font Threshold 

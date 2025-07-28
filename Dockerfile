@@ -11,4 +11,4 @@ COPY . .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Run the script automatically
-CMD ["python", "script.py"]
+CMD ["python", "process_pdfs.py"]
